@@ -1,0 +1,43 @@
+﻿<Window x:Class="TestAppWPF.AddInfoWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:TestAppWPF"
+        mc:Ignorable="d"
+        Title="AddWindow" Height="450" Width="850" MinHeight="450" MinWidth="850">
+        <Grid>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"></ColumnDefinition>
+                <ColumnDefinition Width="3*"></ColumnDefinition>
+                <ColumnDefinition Width="*"></ColumnDefinition>
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition></RowDefinition>
+                <RowDefinition></RowDefinition>
+                <RowDefinition></RowDefinition>
+                <RowDefinition></RowDefinition>
+                <RowDefinition></RowDefinition>
+                <RowDefinition></RowDefinition>
+                <RowDefinition></RowDefinition>
+            </Grid.RowDefinitions>
+            <Label Grid.ColumnSpan="3" HorizontalAlignment="Center">
+                <TextBlock TextWrapping="WrapWithOverflow" >
+                    <Run Text="Add your question" FontSize="30"/>
+                </TextBlock>
+            </Label>
+            <Label Grid.Row="1" VerticalAlignment="Center" FontSize="25">Question</Label>
+            <TextBox Grid.Row="1" Grid.Column="1" VerticalAlignment="Center" FontSize="25" Margin="10" Text="{Binding QuestionText, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"></TextBox>
+            <Label Grid.Row="2" Grid.Column="1" VerticalAlignment="Center" FontSize="25" HorizontalAlignment="Center">Answers</Label>
+            <TextBox Grid.Row="3" Grid.Column="1" VerticalAlignment="Center" FontSize="25" Margin="10" Text="{Binding AnswerText1, Mode=TwoWay}"></TextBox>
+            <TextBox Grid.Row="4" Grid.Column="1" VerticalAlignment="Center" FontSize="25" Margin="10" Text="{Binding AnswerText2, Mode=TwoWay}"></TextBox>
+            <TextBox Grid.Row="5" Grid.Column="1" VerticalAlignment="Center" FontSize="25" Margin="10" Text="{Binding AnswerText3, Mode=TwoWay}"></TextBox>
+            <TextBox Grid.Row="6" Grid.Column="1" VerticalAlignment="Center" FontSize="25" Margin="10" Text="{Binding AnswerText4, Mode=TwoWay}"></TextBox>
+            <Button Grid.Row="6" Grid.Column="2" FontSize="25" VerticalAlignment="Center" Margin="10" Background="Gray" Foreground="White" Command="{Binding AddQuestionCommand}">Save</Button>
+            <Button Grid.Row="5" Grid.Column="2" FontSize="25" VerticalAlignment="Center" Margin="10" Background="Gray" Foreground="White" Command="{Binding FinishCommand}">Finish</Button>
+            <RadioButton Grid.Row="3" HorizontalAlignment="Right" VerticalAlignment="Center" IsChecked="{Binding IsAnswer1Checked, Mode=TwoWay}"></RadioButton>
+            <RadioButton Grid.Row="4" HorizontalAlignment="Right" VerticalAlignment="Center" IsChecked="{Binding IsAnswer2Checked, Mode=TwoWay}"></RadioButton>
+            <RadioButton Grid.Row="5" HorizontalAlignment="Right" VerticalAlignment="Center" IsChecked="{Binding IsAnswer3Checked, Mode=TwoWay}"></RadioButton>
+            <RadioButton Grid.Row="6" HorizontalAlignment="Right" VerticalAlignment="Center" IsChecked="{Binding IsAnswer4Checked, Mode=TwoWay}"></RadioButton>
+        </Grid>
+</Window>

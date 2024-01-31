@@ -1,0 +1,22 @@
+﻿<Window x:Class="TestAppWPF.SelectedTestWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:TestAppWPF"
+        mc:Ignorable="d"
+        Title="TestWindow" Height="450" Width="850" MinHeight="450" MinWidth="850">
+    <Grid>
+        <StackPanel>
+            <TextBlock Text="{Binding CurrentQuestion.QuestionText}" FontSize="20" Margin="10"/>
+            <ListBox ItemsSource="{Binding CurrentQuestion.Answers}" SelectedItem="{Binding CurrentQuestion.SelectedAnswer}" Margin="10">
+                <ListBox.ItemTemplate>
+                    <DataTemplate>
+                        <TextBlock Text="{Binding AnswerText}" Margin="10" />
+                    </DataTemplate>
+                </ListBox.ItemTemplate>
+            </ListBox>
+            <Button Content="Submit Answer" Command="{Binding SubmitAnswerCommand}" Width="150" Margin="10" CommandParameter="{Binding}"/>
+        </StackPanel>
+    </Grid>
+</Window>
